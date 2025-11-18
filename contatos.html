@@ -1,35 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos</title>
+    <title>Contatos | Luís Eduardo</title>
+    
     <link rel="stylesheet" href="Principal.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="contatos.html">Contato</a></li>
-    </ul>
-  </nav>
+        <ul class="lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Mybio.html">Quem sou eu?</a></li>
+            
+            <li class="dropdown">
+                <a href="#">Aulas <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                   <li><a href="https://resumo-curso-luis.netlify.app/" target="_blank">Resumo do curso</a></li>
+                    <li><a href="https://tabela-brasileirao-luis.netlify.app/" target="_blank">Tabelas</a></li>
+                    <li><a href="https://lista-luis.netlify.app/" target="_blank">Listas</a></li>
+                    <li><a href="https://formulario-luis.netlify.app/" target="_blank">Formulários</a></li>
+                    <li><a href="https://petshopping-luis.netlify.app/" target="_blank">PetShop</a></li>
+                    <li><a href="https://luis-eduardo-ferreira.netlify.app/" target="_blank">Cards</a></li>
+                    <li><a href="https://login-aula-luis.netlify.app/" target="_blank">Tela de Login</a></li>
+                    <li><a href="https://login-hospitalar-luis.netlify.app/" target="_blank">Login Hospitalar</a></li>
+                    <li><a href="https://gametech-hub.vercel.app/" target="_blank">Site de Jogos</a></li>
+                    <li><a href="https://tabela-periodica-tawny-gamma.vercel.app/" target="_blank">Tabela Periódica</a></li>
+                    <li><a href="https://hub-fotografias.netlify.app/" target="_blank">Ensaios Fotográficos</a></li>
+                    <li><a href="https://portifolio-website-hub-git-main-luis-eduardos-projects-506d492d.vercel.app/" target="_blank">Currículo</a></li>
+                    <li><a href="https://biografia-gray.vercel.app/" target="_blank">Biografia Lattes</a></li>
+                    <li><a href="https://biblioteca-virtual-hub.vercel.app/" target="_blank">Biblioteca Virtual</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="contatos.html">Contatos</a></li>
+        </ul>
+    </nav>
 
-  <main>
-    <div class="contact-container">
-      <h1>Meus Contatos</h1>
-      <p>Você pode me encontrar nas redes abaixo:</p>
+    <main>
+        <section class="intro">
+            <h1>Meus Contatos</h1>
+            <p>Vamos conectar? Escolha a melhor forma de falar comigo abaixo:</p>
+        </section>
 
-      <ul class="contact-list">
-        <li><strong>WhatsApp:</strong> <a href="https://wa.me/5561991855550" target="_blank">+55 61 99185-5550</a></li>
-        <li><strong>E-mail:</strong> <a href="mailto:luis.eduardo17y@gmail.com">luis.eduardo17y@gmail.com</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/LuisEdu17y" target="_blank">github.com/LuisEdu17y</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/luis-eduardo-carvalho-ferreira-00a685359/" target="_blank">linkedin.com/in/luis-eduardo-carvalho-ferreira</a></li>
-        <li><strong>Instagram:</strong> <a href="https://instagram.com/_luiseduardocf" target="_blank">@_luiseduardocf</a></li>
-      </ul>
-    </div>
-  </main>
+        <div class="contact-grid">
+            
+            <a href="https://wa.me/5561991855550" target="_blank" class="contact-card whatsapp">
+                <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp</h3>
+                <span>+55 61 99185-5550</span>
+            </a>
 
+            <a href="mailto:luis.eduardo17y@gmail.com" class="contact-card email">
+                <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                <h3>E-mail</h3>
+                <span>luis.eduardo17y@...</span>
+            </a>
 
-    
+            <a href="https://linkedin.com/in/luis-eduardo-carvalho-ferreira-00a685359/" target="_blank" class="contact-card linkedin">
+                <div class="icon-box"><i class="fab fa-linkedin-in"></i></div>
+                <h3>LinkedIn</h3>
+                <span>Conectar profissionalmente</span>
+            </a>
+
+            <a href="https://github.com/LuisEdu17y" target="_blank" class="contact-card github">
+                <div class="icon-box"><i class="fab fa-github"></i></div>
+                <h3>GitHub</h3>
+                <span>Ver meus códigos</span>
+            </a>
+
+            <a href="https://instagram.com/_luiseduardocf" target="_blank" class="contact-card instagram">
+                <div class="icon-box"><i class="fab fa-instagram"></i></div>
+                <h3>Instagram</h3>
+                <span>@_luiseduardocf</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Luís Eduardo &copy; 2025</p>
+    </footer>
+
 </body>
 </html>

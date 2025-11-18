@@ -1,168 +1,429 @@
-/* Estilos gerais */
+/* =========================================
+   1. VARIÁVEIS E RESET (Configurações Gerais)
+   ========================================= */
+   :root {
+    /* Cores do Fundo (Degradê Dark Mode) */
+    --bg-gradient-start: #0f0c29;
+    --bg-gradient-mid: #302b63;
+    --bg-gradient-end: #24243e;
+
+    /* Cores Principais */
+    --primary-color: #4a90e2;    /* Azul Claro */
+    --accent-color: #9013fe;     /* Roxo */
+    
+    /* Texto e Fundos */
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+    --card-bg: #ffffff;          /* Fundo dos cartões (Branco) */
+    --card-text: #333333;        /* Texto dentro dos cartões (Escuro) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Fonte Principal */
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: white;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+    color: var(--text-light);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Menu de navegação */
+/* =========================================
+   2. BARRA DE NAVEGAÇÃO (Menu Glassmorphism)
+   ========================================= */
 nav {
-  background-color: rgb(37, 37, 37);
-  font-family: Arial, sans-serif;
+    background: rgba(255, 255, 255, 0.05); /* Transparência */
+    backdrop-filter: blur(15px);           /* Desfoque de vidro */
+    -webkit-backdrop-filter: blur(15px);
+    width: 100%;
+    position: sticky; /* Fixa no topo */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+.lista {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem 0;
 }
 
-nav ul li {
-  position: relative;
+.lista > li {
+    position: relative;
+    margin: 0 25px;
 }
 
-nav ul li a {
-  display: block;
-  padding: 10px 15px;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+.lista a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
-nav ul li a:hover {
-  background-color: rgb(68, 68, 68);
+.lista a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
 }
 
-nav ul li ul {
-  position: absolute;
-  top: 100%;
-  left: 0%;
-  background-color: rgb(34, 34, 34);
-  display: none;
-  min-width: 150px;
-  padding: 0;
-  margin: 0;
-  border-radius: 0 0 5px 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+/* --- Submenu Dropdown (Aulas) --- */
+.dropdown:hover .submenu {
+    display: block;
+    animation: slideDown 0.3s ease;
 }
 
-nav ul li ul li a {
-  padding: 10px 15px;
-  color: white;
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--card-bg);
+    min-width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    padding: 10px 0;
+    z-index: 1001;
+    border-top: 4px solid var(--primary-color);
 }
 
-nav ul li ul li a:hover {
-  background-color: black;
+/* Setinha do menu */
+.submenu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--primary-color) transparent;
 }
 
-nav ul li:hover > ul {
-  display: block;
+.submenu li {
+    display: block;
+    margin: 0;
 }
 
-/* Conteúdo principal */
+.submenu li a {
+    color: var(--card-text);
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.submenu li a:hover {
+    background-color: #f8f9fa;
+    color: var(--primary-color);
+    padding-left: 25px; /* Efeito de movimento */
+}
+
+/* =========================================
+   3. ESTRUTURA PRINCIPAL E RODAPÉ
+   ========================================= */
 main {
-  padding: 2%;
-  flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 20px;
+    text-align: center;
+    flex: 1; /* Empurra o rodapé para baixo */
 }
 
-/* Biografia */
-.bio-container {
-  background-color: white;
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 500px;
-  margin: 40px auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--primary-color), #00d2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Texto Gradiente */
+    font-weight: 700;
 }
 
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
+main > p, .intro p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
 }
 
-.bio-container h1 {
-  margin: 0;
-  font-size: 28px;
-  color: #333;
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.bio-container h2 {
-  font-size: 18px;
-  color: #777;
-  margin-bottom: 20px;
-}
-
-.bio-container p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
-}
-
-.contact-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #0077cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.contact-container {
-  max-width: 600px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.contact-container h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.contact-container p {
-  text-align: center;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  font-size: 16px;
-  color: #444;
-}
-
-.contact-list li {
-  margin-bottom: 15px;
-}
-
-.contact-list a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
-.contact-list a:hover {
-  text-decoration: underline;
+/* =========================================
+   4. PÁGINA HOME (Card do Aluno)
+   ========================================= */
+.destaques {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 .card {
-  background-color: #201f20;
-  padding: 20px 20px;
-  width: 25%;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(255, 255, 255);
-  text-align: left;
-  color: rgba(255, 255, 255, 0.733);
+    background: var(--card-bg);
+    color: var(--card-text);
+    width: 100%;
+    max-width: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    text-align: left;
+    transition: transform 0.4s ease;
+    position: relative;
 }
 
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Faixa colorida no topo do card */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+}
+
+.card-header {
+    padding: 2rem 2.5rem 1rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.badge {
+    background: var(--accent-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.card-body {
+    padding: 2rem 2.5rem;
+}
+
+.card-body p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 5px;
+}
+
+.card-body b {
+    color: var(--primary-color);
+}
+
+/* =========================================
+   5. PÁGINA CONTATOS (Grid Interativo)
+   ========================================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: var(--card-bg);
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--card-text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 2px solid transparent;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.contact-card h3 {
+    font-size: 1.2rem; margin-bottom: 5px; font-weight: 600;
+}
+
+.contact-card span {
+    font-size: 0.9rem; color: #666;
+}
+
+/* Cores Específicas dos Contatos */
+.contact-card.whatsapp:hover { border-color: #25D366; }
+.contact-card.whatsapp:hover .icon-box { color: #25D366; }
+
+.contact-card.email:hover { border-color: #EA4335; }
+.contact-card.email:hover .icon-box { color: #EA4335; }
+
+.contact-card.linkedin:hover { border-color: #0077b5; }
+.contact-card.linkedin:hover .icon-box { color: #0077b5; }
+
+.contact-card.github:hover { border-color: #333; }
+.contact-card.github:hover .icon-box { color: #333; }
+
+.contact-card.instagram:hover { border-color: #E1306C; }
+.contact-card.instagram:hover .icon-box {
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =========================================
+   6. PÁGINA BIO (Quem Sou Eu)
+   ========================================= */
+.bio-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bio-card {
+    background: var(--card-bg);
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    max-width: 650px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    position: relative;
+    margin-top: 1rem;
+}
+
+.image-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 1.5rem auto;
+    padding: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.bio-card h1 {
+    font-size: 2.2rem; color: #2c3e50;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.bio-text {
+    color: #555; line-height: 1.8; font-size: 1.05rem; margin-bottom: 2rem;
+}
+
+/* Ícones de Tecnologia */
+.tech-stack {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tech-stack i {
+    font-size: 2rem;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.tech-stack i:hover { transform: translateY(-5px) scale(1.1); }
+.tech-stack .fa-html5:hover { color: #E34F26; }
+.tech-stack .fa-css3-alt:hover { color: #1572B6; }
+.tech-stack .fa-js:hover { color: #F7DF1E; }
+.tech-stack .fa-react:hover { color: #61DAFB; }
+
+/* Botão da Bio */
+.btn-contact {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(144, 19, 254, 0.4);
+}
+
+/* =========================================
+   7. ANIMAÇÕES E RESPONSIVIDADE
+   ========================================= */
+@keyframes slideDown {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    
+    .lista { flex-direction: column; gap: 15px; }
+    .lista > li { margin: 0; }
+    
+    .submenu {
+        position: relative;
+        left: 0;
+        transform: none;
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #eee;
+        margin-top: 10px;
+    }
+    .submenu::before { display: none; }
+}

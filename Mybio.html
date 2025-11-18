@@ -1,34 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Bio</title>
-    <link rel="stylesheet" href="Principal.css".css>
+    <title>Quem sou eu? | Luís Eduardo</title>
     
+    <link rel="stylesheet" href="Principal.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Início</a></li>
-      <li><a href="contatos.html">Contato</a></li>
-    </ul>
-  </nav>
 
-  <main>
-    <div class="bio-container">
-      <img src="./imagem/518168897_18118085611491389_2470368049488673083_n.jpg" alt="Foto de Luís" class="profile-pic">
-      <h1>Luís Eduardo</h1>
-      <h2>Desenvolvedor Web | Brasília, DF</h2>
-      <p>
-        Sou apaixonado por tecnologia, e no momento estudo Analise e desenvolvimento de sistemas no CEUB. Atualmente estudo desenvolvimento web e estou criando projetos que unem criatividade e funcionalidade.
-      </p>
-      <a href="mailto: luis.eduardo17y@gmail.com" class="contact-btn">Fale comigo</a>
-    </div>
-  </main>
-</body>
+    <nav>
+        <ul class="lista">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Mybio.html">Quem sou eu?</a></li>
+            
+            <li class="dropdown">
+                <a href="#">Aulas <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                   <li><a href="https://resumo-curso-luis.netlify.app/" target="_blank">Resumo do curso</a></li>
+                    <li><a href="https://tabela-brasileirao-luis.netlify.app/" target="_blank">Tabelas</a></li>
+                    <li><a href="https://lista-luis.netlify.app/" target="_blank">Listas</a></li>
+                    <li><a href="https://formulario-luis.netlify.app/" target="_blank">Formulários</a></li>
+                    <li><a href="https://petshopping-luis.netlify.app/" target="_blank">PetShop</a></li>
+                    <li><a href="https://luis-eduardo-ferreira.netlify.app/" target="_blank">Cards</a></li>
+                    <li><a href="https://login-aula-luis.netlify.app/" target="_blank">Tela de Login</a></li>
+                    <li><a href="https://login-hospitalar-luis.netlify.app/" target="_blank">Login Hospitalar</a></li>
+                    <li><a href="https://gametech-hub.vercel.app/" target="_blank">Site de Jogos</a></li>
+                    <li><a href="https://tabela-periodica-tawny-gamma.vercel.app/" target="_blank">Tabela Periódica</a></li>
+                    <li><a href="https://hub-fotografias.netlify.app/" target="_blank">Ensaios Fotográficos</a></li>
+                    <li><a href="https://portifolio-website-hub-git-main-luis-eduardos-projects-506d492d.vercel.app/" target="_blank">Currículo</a></li>
+                    <li><a href="https://biografia-gray.vercel.app/" target="_blank">Biografia Lattes</a></li>
+                    <li><a href="https://biblioteca-virtual-hub.vercel.app/" target="_blank">Biblioteca Virtual</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="contatos.html">Contatos</a></li>
+        </ul>
+    </nav>
 
-    
+    <main>
+        <section class="bio-section">
+            <div class="bio-card">
+                <div class="image-container">
+                    <img src="./imagem/518168897_18118085611491389_2470368049488673083_n.jpg" alt="Foto de Luís Eduardo" class="profile-pic">
+                </div>
+                
+                <h1>Luís Eduardo</h1>
+                <h2 class="subtitle">Desenvolvedor Web <span class="divider">|</span> Brasília, DF</h2>
+                
+                <p class="bio-text">
+                    Sou apaixonado por tecnologia e estudante de <b>Análise e Desenvolvimento de Sistemas</b> no CEUB. 
+                    Atualmente, meu foco é o desenvolvimento web, onde busco criar projetos que unem criatividade visual e funcionalidade robusta.
+                </p>
+
+                <div class="tech-stack">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                </div>
+
+                <a href="mailto:luis.eduardo17y@gmail.com" class="btn-contact">
+                    Fale comigo <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Luís Eduardo &copy; 2025</p>
+    </footer>
+
 </body>
 </html>
